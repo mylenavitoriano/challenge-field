@@ -1,7 +1,18 @@
 .pagination{
-    color: #FFF;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
     .numbers{
+        display: flex;
+        gap: .8rem;
+        color: #FFF;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.2rem;
+
+        div{
+            cursor: pointer;
+        }
 
         .active{
             color: #FF0000;

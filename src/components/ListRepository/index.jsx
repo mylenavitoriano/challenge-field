@@ -3,10 +3,16 @@ import IconStar from '../../assets/icons/icon-star.svg'
 import IconLang from '../../assets/icons/icon-language.svg'
 import IconIssues from '../../assets/icons/icon-issues.svg'
 import IconFork from '../../assets/icons/icon-fork.svg'
-import Pagination from '../Pagination'
+import { useEffect, useState } from 'react'
 
 export default function ListRepository({list}){
-    console.log(list)
+    
+    const [listRepository, setListRepository] = useState(list)
+
+    useEffect(() => {
+        setListRepository(list)
+    }, [list])
+
     return(
         <section className='list-repository'>
             <div className='title'>Showing 1.444.444 available repositor results</div>
@@ -24,11 +30,11 @@ export default function ListRepository({list}){
 
                     return(
 
-                        <div className='repository'>
+                        <div className='repository' key={index}>
                             <h3 className='title-repo'>{item.full_name}</h3>
                             <p className='description'>{item.description}</p>
                             <div className='topics'>
-                                {topics}
+                                {/* {topics} */}
                             </div>
 
                             <div className='footer-repo'>
@@ -56,7 +62,6 @@ export default function ListRepository({list}){
                 {!list && <div>AQUI</div>}
             </div>
 
-            <Pagination quantityRepo={1528} perPage={10} />
         </section>
     )
 }

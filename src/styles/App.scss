@@ -7,4 +7,10 @@
     gap: 3.25rem;
     margin-top: 5rem;
     padding-inline: 1rem;
+
+    .repos{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
