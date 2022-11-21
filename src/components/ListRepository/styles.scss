@@ -40,6 +40,7 @@
                 font-family: 'Roboto', sans-serif;
                 font-size: 1rem;
                 color: #F3F3F3;
+                word-break: break-all;
             }
 
             .topics{
@@ -83,7 +84,8 @@
                         font-weight: 300;
                         font-size: 0.875rem;
                         width: 100%;
-                        white-space: nowrap
+                        white-space: nowrap;
+                        
                     }
                 }
             }
