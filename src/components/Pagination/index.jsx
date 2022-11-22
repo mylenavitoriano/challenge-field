@@ -7,8 +7,6 @@ export default function Pagination ({quantityRepo, perPage, updatePage}) {
     
     const [pageSelect, setPageSelect] = useState(1)
 
-    useEffect(() => {console.log(pageSelect)}, [pageSelect])
-
     useEffect(() => {
         updateButtons()
     }, [])
@@ -110,11 +108,11 @@ export default function Pagination ({quantityRepo, perPage, updatePage}) {
 
     return(
         <div className='pagination'>
-            <div className='button-back' onClick={() => controls.goTo(1)}><CaretDoubleLeft  size={20} color={"#FFF"}/></div>
-            <div className='button-back' onClick={() => controls.prev()}><CaretLeft size={20} color={"#FFF"}/></div>
+            <div className='button button-back' onClick={() => controls.goTo(1)}><CaretDoubleLeft  size={20} color={"#FFF"}/></div>
+            <div className='button button-back' onClick={() => controls.prev()}><CaretLeft size={20} color={"#FFF"}/></div>
             <div className='numbers' id="buttons-number"></div>
-            <div className='button-next' onClick={() => controls.next()}><CaretRight size={20} color={"#FFF"}/></div>
-            <div className='button-next' onClick={() => controls.goTo(quantityPages)}><CaretDoubleRight  size={20} color={"#FFF"}/></div>
+            <div className='button button-next' onClick={() => controls.next()}><CaretRight size={20} color={"#FFF"}/></div>
+            <div className='button button-next' onClick={() => controls.goTo(quantityPages)}><CaretDoubleRight  size={20} color={"#FFF"}/></div>
         </div>
     )
 }

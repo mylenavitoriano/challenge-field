@@ -15,18 +15,17 @@ export default function ListRepository({list}){
 
     return(
         <section className='list-repository'>
-            <div className='title'>Showing 1.444.444 available repositor results</div>
+            <div className='title'>Showing {listRepository && listRepository.total_count} available repositor results</div>
 
             <div className='list'>
 
-                {list && list.items.map((item, index) => {
+                {listRepository && listRepository.items.map((item, index) => {
 
 
-                    // let topics = []
-                    // for (let i = 0; i < topics.length; i++) {
-                    //     topics.push(<div className='topic'>{item.topics[i]}</div>)
-                    //     console.log(i)
-                    // }
+                    let topics = []
+                    for (let i = 0; i < item.topics.length; i++) {
+                        topics.push(<div className='topic'>{item.topics[i]}</div>)
+                    }
 
                     return(
 
@@ -34,7 +33,7 @@ export default function ListRepository({list}){
                             <h3 className='title-repo'>{item.full_name}</h3>
                             <p className='description'>{item.description}</p>
                             <div className='topics'>
-                                {/* {topics} */}
+                                {topics}
                             </div>
 
                             <div className='footer-repo'>

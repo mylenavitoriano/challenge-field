@@ -1,7 +1,16 @@
+@import '../../styles/variables';
+
 .pagination{
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+    width: 100%;
+    margin: 1.5rem 0 5rem;
+
+    .button{
+        cursor: pointer;
+    }
 
     .numbers{
         display: flex;
@@ -12,10 +21,12 @@
 
         div{
             cursor: pointer;
-        }
+            padding: .1rem .5rem ;
 
-        .active{
-            color: #FF0000;
+            &.active{
+                color: $primary-200;
+                border-bottom: 1px solid $primary-200;
+            }
         }
     }
 }
