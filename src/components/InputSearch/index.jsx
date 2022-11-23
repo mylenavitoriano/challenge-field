@@ -7,7 +7,7 @@ export default function InputSearch({searchRepository}){
     const [keyword, setKeyword] = useState("")
 
     function search(){
-        searchRepository(keyword)
+        searchRepository(keyword, 1)
     }
 
     return(

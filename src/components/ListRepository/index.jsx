@@ -58,7 +58,7 @@ export default function ListRepository({list}){
                     )
                 })}
 
-                {!list && <div>AQUI</div>}
+                {!listRepository && <div>AQUI</div>}
             </div>
 
         </section>

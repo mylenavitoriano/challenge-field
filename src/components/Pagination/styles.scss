@@ -3,30 +3,22 @@
 .pagination{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 1rem;
     width: 100%;
     margin: 1.5rem 0 5rem;
 
-    .button{
-        cursor: pointer;
-    }
-
-    .numbers{
+    .buttons-left, .buttons-right{
         display: flex;
-        gap: .8rem;
-        color: #FFF;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.2rem;
+        align-items: center;
+        gap: 1rem;
 
-        div{
+        .button{
             cursor: pointer;
-            padding: .1rem .5rem ;
-
-            &.active{
-                color: $primary-200;
-                border-bottom: 1px solid $primary-200;
-            }
+            font-family: 'Poppins';
+            color: #FFF;
+            display: flex;
+            align-items: center;
         }
     }
 }
