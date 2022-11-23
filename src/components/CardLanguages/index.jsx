@@ -1,46 +1,53 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './styles.scss'
 
 export default function CardLanguages({list}){
-
-    const [languages, setLanguages] = useState(
-        [
-            {
-                "lang": "JavaScript",
-                "quantity": 345
-            },
-            {
-                "lang": "C#",
-                "quantity": 150
-            },
-            {
-                "lang": "HTML",
-                "quantity": 80
-            },
-        ]
-    )
-
     
+    const [repositories, setRepositories] = useState(list)
+    let languages = []
+
+    useEffect(() => {
+        setRepositories(list)
+        verificaLinguagem()
+        
+    }, [list])    
+
+    function verificaLinguagem(){
+        if(repositories !== undefined){
+            repositories.map((item, index) => {
+                let objLanguage = languages.find(({lang}) => lang == item.language)
+                
+                if(objLanguage !== undefined){
+                    for(let i = 0; i < languages.length; i++){
+                        if(languages[i].lang == objLanguage.lang){
+                            languages[i] = {'lang': objLanguage.lang, 'total': (objLanguage.total + 1)}
+                        }
+                    }
+                }else{
+                    languages.push({'lang': item.language, 'total': 1})
+                }
+            })
+
+            console.log(languages)
+        }
+    }
 
     return(
         <section className='card-languages'>
             <div className='title'>Languages</div>
 
-            {list && list.map((item, index) => {
-                console.log(item)
-
-                return(
-                    <div>{item}</div>
-                )
-            })}
-
             <div className='list-languages'>
-                <p className='item'>
-                    JavaScript
-                    <span>943.656</span>
-                </p>
+                {languages.length !== 0 && languages.map((item, index) => {
+                    console.log(item)
 
-                <p className='item'>
+                    return(
+                    <p className='item' key={index}>
+                        {item.lang}
+                        <span>{item.total}</span>
+                    </p>)
+                })}
+
+                {/* <p className='item'>
                     HTML
                     <span>943.656</span>
                 </p>
@@ -53,7 +60,7 @@ export default function CardLanguages({list}){
                 <p className='item'>
                     C#
                     <span>943.656</span>
-                </p>
+                </p> */}
             </div>
         </section>
     )

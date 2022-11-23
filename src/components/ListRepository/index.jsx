@@ -5,7 +5,7 @@ import IconIssues from '../../assets/icons/icon-issues.svg'
 import IconFork from '../../assets/icons/icon-fork.svg'
 import { useEffect, useState } from 'react'
 
-export default function ListRepository({list}){
+export default function ListRepository({list, amountRepositories}){
     
     const [listRepository, setListRepository] = useState(list)
 
@@ -15,16 +15,16 @@ export default function ListRepository({list}){
 
     return(
         <section className='list-repository'>
-            <div className='title'>Showing {listRepository && listRepository.total_count} available repositor results</div>
+            <div className='title'>Showing {amountRepositories && amountRepositories} available repositor results</div>
 
             <div className='list'>
 
-                {listRepository && listRepository.items.map((item, index) => {
+                {listRepository && listRepository.map((item, index) => {
 
 
                     let topics = []
                     for (let i = 0; i < item.topics.length; i++) {
-                        topics.push(<div className='topic'>{item.topics[i]}</div>)
+                        topics.push(<div className='topic' key={i}>{item.topics[i]}</div>)
                     }
 
                     return(

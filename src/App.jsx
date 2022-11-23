@@ -11,6 +11,7 @@ function App() {
 
   const [listRepository, setListRepository] = useState()
   const [pageCurrently, setPageCurrently] = useState(1)
+  const [amountRepositories, setAmountRepositories] = useState(0)
   const [keyword, setKeyword] = useState('')
 
   useEffect(() => {
@@ -28,7 +29,7 @@ function App() {
 
     axios
       .get(`https://api.github.com/search/repositories?q=${keywordInput}&per_page=5&page=${page}`)
-      .then((response) => {setListRepository(response.data) ;console.log(response.data)})
+      .then((response) => {setListRepository(response.data.items) ; setAmountRepositories(response.data.total_count); console.log(response.data)})
       .catch((error) => console.log('Error: ', error));
   }
 
@@ -37,10 +38,10 @@ function App() {
       <InputSearch searchRepository={searchRepository} />
 
       <div className="container">
-        <CardLanguages list={listRepository.items} />
+        <CardLanguages list={listRepository} />
         <div className='repos'>
-          <ListRepository list={listRepository} updatePage={updatePage} />
-          <Pagination quantityRepo={1000} perPage={10} updatePage={updatePage} />
+          <ListRepository list={listRepository} updatePage={updatePage} amountRepositories={amountRepositories}/>
+          <Pagination quantityRepo={1000} perPage={5} updatePage={updatePage} />
         </div>
 
       </div>
