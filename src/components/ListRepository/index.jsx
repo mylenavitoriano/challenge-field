@@ -14,7 +14,7 @@ export default function ListRepository({list, amountRepositories}){
     }, [list])
 
     return(
-        <section className='list-repository'>
+        <section className='list-repository' id="section-respositories">
             <div className='title'>Showing {amountRepositories && amountRepositories} available repositor results</div>
 
             <div className='list'>

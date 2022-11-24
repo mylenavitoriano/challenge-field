@@ -1,5 +1,4 @@
 import './styles/App.scss'
-import CardLanguages from "./components/CardLanguages"
 import InputSearch from "./components/InputSearch"
 import ListRepository from "./components/ListRepository"
 
@@ -41,7 +40,6 @@ function App() {
       {listRepository === undefined && <div className='no-reposotories'>No repositories, perform your search...</div>}
 
       {listRepository && <div className="container">
-        {/* <CardLanguages list={listRepository} /> */}
         <div className='repos'>
           <ListRepository list={listRepository} updatePage={updatePage} amountRepositories={amountRepositories}/>
           <Pagination quantityRepo={1000} perPage={5} updatePage={updatePage} />

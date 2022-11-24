@@ -9,6 +9,7 @@ export default function Pagination ({quantityRepo, perPage, updatePage}) {
     
     useEffect(() => {
         updatePage(pageSelect)
+        window.scrollTo(0, 0)
     }, [pageSelect])
 
 
@@ -25,7 +26,6 @@ export default function Pagination ({quantityRepo, perPage, updatePage}) {
             }else{
                 setPageSelect(pageSelect + 1)
             }
-
         },
         prev(){
             

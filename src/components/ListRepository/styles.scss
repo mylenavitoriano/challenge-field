@@ -6,6 +6,7 @@
     position: relative;
     max-width: 40rem;
     width: 100%;
+    animation: movimento .3s ease-in-out forwards 1;
 
     @media (max-width: 760px) {
         max-width: 100%;
@@ -123,3 +124,16 @@
         }
     }
 }
+
+
+@keyframes movimento {
+    0% {
+      opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+  }
