@@ -24,30 +24,32 @@ export default function ListRepository({list, amountRepositories}){
 
                     let topics = []
                     for (let i = 0; i < item.topics.length; i++) {
-                        topics.push(<div className='topic' key={i}>{item.topics[i]}</div>)
+                        topics.push(<div className='topic' key={i}><a href={`https://github.com/topics/${item.topics[i]}`}>{item.topics[i]}</a></div>)
                     }
 
                     return(
 
                         <div className='repository' key={index}>
-                            <h3 className='title-repo'>{item.full_name}</h3>
+                            <a href={item.html_url}><h3 className='title-repo'>{item.full_name}</h3></a>
                             <p className='description'>{item.description}</p>
                             <div className='topics'>
                                 {topics}
                             </div>
 
                             <div className='footer-repo'>
-                                <div className='item-footer count-star'>
-                                    <img src={IconStar} alt="Icon Star" />
-                                    <p>{item.stargazers_count}</p>
-                                </div>
-                                <div className='item-footer language'>
+                                
+                                    <div className='item-footer count-star'>
+                                        <img src={IconStar} alt="Icon Star" />
+                                        <p><a href={`https://github.com/${item.full_name}/stargazers`}>{item.stargazers_count}</a></p>
+                                    </div>
+                                
+                                {item.language && <div className='item-footer language'>
                                     <img src={IconLang} alt="Icon Language" />
                                     <p>{item.language}</p>
-                                </div>
+                                </div>}
                                 <div className='item-footer count-issues'>
                                     <img src={IconIssues} alt="Icon Issues" />
-                                    <p>{item.open_issues_count} issues</p>
+                                    <p><a href={`https://github.com/${item.full_name}/issues`}>{item.open_issues_count} issues</a></p>
                                 </div>
                                 <div className='item-footer count-forks'>
                                     <img src={IconFork} alt="Icon Forks" />

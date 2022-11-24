@@ -14,9 +14,10 @@ function App() {
   const [amountRepositories, setAmountRepositories] = useState(0)
   const [keyword, setKeyword] = useState('')
 
+  console.log(listRepository)
+
   useEffect(() => {
     searchRepository(keyword, pageCurrently)
-    console.log(pageCurrently)
   }, [pageCurrently])
 
 
@@ -37,14 +38,16 @@ function App() {
     <main>
       <InputSearch searchRepository={searchRepository} />
 
-      <div className="container">
-        <CardLanguages list={listRepository} />
+      {listRepository === undefined && <div className='no-reposotories'>No repositories, perform your search...</div>}
+
+      {listRepository && <div className="container">
+        {/* <CardLanguages list={listRepository} /> */}
         <div className='repos'>
           <ListRepository list={listRepository} updatePage={updatePage} amountRepositories={amountRepositories}/>
           <Pagination quantityRepo={1000} perPage={5} updatePage={updatePage} />
         </div>
 
-      </div>
+      </div>}
     </main>
   )
 }

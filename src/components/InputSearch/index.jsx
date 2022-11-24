@@ -6,14 +6,18 @@ export default function InputSearch({searchRepository}){
 
     const [keyword, setKeyword] = useState("")
 
-    function search(){
-        searchRepository(keyword, 1)
+    function search(key){
+        if(key === "Enter"){
+            searchRepository(keyword, 1)
+        }else if(!key){
+            searchRepository(keyword, 1)
+        }
     }
 
     return(
         <div className='input-search'>
-            <input type="text" placeholder='Search a repository' className='input' value={keyword} onChange={(e) => setKeyword(e.target.value)}/>
-            <button className='button-search' onClick={search}><img src={IconSearch} alt="Icon Search" /></button>
+            <input type="text" placeholder='Search a repository' className='input' value={keyword} onChange={(e) => setKeyword(e.target.value)} onKeyPress={(e) => search(e.key)}/>
+            <button className='button-search' onClick={() => search(false)}><img src={IconSearch} alt="Icon Search" /></button>
         </div>
     )
 }

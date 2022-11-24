@@ -27,8 +27,6 @@ export default function CardLanguages({list}){
                     languages.push({'lang': item.language, 'total': 1})
                 }
             })
-
-            console.log(languages)
         }
     }
 
@@ -46,21 +44,6 @@ export default function CardLanguages({list}){
                         <span>{item.total}</span>
                     </p>)
                 })}
-
-                {/* <p className='item'>
-                    HTML
-                    <span>943.656</span>
-                </p>
-
-                <p className='item'>
-                    CSS
-                    <span>943.656</span>
-                </p>
-
-                <p className='item'>
-                    C#
-                    <span>943.656</span>
-                </p> */}
             </div>
         </section>
     )
